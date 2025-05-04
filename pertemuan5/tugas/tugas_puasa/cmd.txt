@@ -1,0 +1,137 @@
+Microsoft Windows [Version 10.0.22631.5189]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 48
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| dbpegawai          |
+| dbpuskesmas        |
+| dbsiak             |
+| dbtoko             |
+| dbtoko_jumat       |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+10 rows in set (0.001 sec)
+
+MariaDB [(none)]> SHOW TABLES;
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> USE dbpuskesmas;
+Database changed
+MariaDB [dbpuskesmas]> SELECT * FROM klurahan;
++----+----------------+
+| id | nama_kelurahan |
++----+----------------+
+|  1 | Pasirkuda      |
+|  2 | Cibinong       |
+|  3 | Mawar          |
+|  4 | Cileungsi      |
+|  5 | Karadenan      |
+|  6 | Sukahati       |
+|  7 | Sukaraja       |
++----+----------------+
+7 rows in set (0.001 sec)
+
+MariaDB [dbpuskesmas]> SELECT * FROM paramedik;
++----+---------------------+--------+------------+------------+----------+--------------+---------------------------------+--------------+
+| id | nama                | gender | tmp_lahir  | tgl_lahir  | kategori | telpon       | alamat                          | unitkerja_id |
++----+---------------------+--------+------------+------------+----------+--------------+---------------------------------+--------------+
+|  1 | Muhammad Raihan     | L      | Jakarta    | 1995-05-15 | Dokter   | 08123456789  | Jl. Merdeka No. 1, Pasirkuda    |            1 |
+|  2 | Aqila Apta          | P      | Bandung    | 1990-08-20 | Perawat  | 082345678901 | Jl. Kebangsaan No. 2, Cibinong  |            2 |
+|  3 | Assyifa Khoirunnisa | p      | Surabaya   | 1988-12-10 | Bidan    | 0834567890   | Jl. Sehat No. 3, Mawar          |            3 |
+|  4 | Muhammad Zulfikar   | L      | Medan      | 1982-03-25 | Dokter   | 086789012    | Jl. Cinta No. 4, Cileungsi      |            4 |
+|  5 | Sofwatun Najwa      | P      | Semarang   | 1995-07-30 | Perawat  | 08567890123  | Jl. Damai No. 5, Karadenan      |            5 |
+|  6 | Muhammad Alviansyah | L      | Yogyakarta | 1980-11-11 | Dokter   | 08678901234  | Jl. Bahagia No. 6, Sukahati     |            6 |
+|  7 | Ayu Della           | p      | Bali       | 1992-09-15 | Bidan    | 08789012345  | Jl. Indah No. 7, Sukaraja       |            5 |
+|  8 | Reza Firmansyah     | L      | Palembang  | 1987-01-05 | Dokter   | 08890123456  | Jl. Sejahtera No. 8, Pasirkuda  |            2 |
+|  9 | Nurul Destiyana     | P      | Makassar   | 1993-04-22 | Perawat  | 08901234567  | Jl. Sukses No. 9, Cibinong      |            1 |
+| 10 | Andhika Haikal      | L      | Bandung    | 1984-06-18 | Dokter   | 09012345678  | Jl. Harapan No. 10, Mawar       |            5 |
+| 11 | Cinta Melati        | P      | Jakarta    | 1991-10-10 | Bidan    | 09123456789  | Jl. Kesehatan No. 11, Cileungsi |            6 |
+| 12 | Fathi Farhan        | L      | Surabaya   | 1986-02-14 | Perawat  | 09234567890  | Jl. Cemerlang No. 12, Karadenan |            3 |
+| 13 | Eka Purnamasari     | P      | Medan      | 1994-12-01 | Bidan    | 09345678901  | Jl. Maju No. 13, Sukahati       |            6 |
+| 14 | Dzikra Putra        | L      | Yogyakarta | 1983-08-28 | Perawat  | 09456789012  | Jl. Aman No. 14, Sukaraja       |            4 |
+| 15 | Dinta Fridayanti    | P      | Bali       | 1996-05-05 | Perawat  | 09567890123  | Jl. Ceria No. 15, Pasirkuda     |            6 |
++----+---------------------+--------+------------+------------+----------+--------------+---------------------------------+--------------+
+15 rows in set (0.001 sec)
+
+MariaDB [dbpuskesmas]> SELECT * FROM pasien;
++----+------+------------------------+------------+------------+--------+-------------------------+---------------------------+-------------+
+| id | kode | nama                   | tmp_lahir  | tgl_lahir  | gender | email                   | alamat                    | klurahan_id |
++----+------+------------------------+------------+------------+--------+-------------------------+---------------------------+-------------+
+|  1 | P001 | Meisha Teluma          | Bogor      | 1995-09-12 | P      | meisha0912@gmail.com    | Jl. Kenangan No. 19
+     |           6 |
+|  2 | P002 | Ahmad Fauzan           | Jakarta    | 2000-09-05 | L      | fauzanahmad@gmail.com   | Jl. Tegar Beriman No. 78  |           2 |
+|  3 | P003 | Dzikra Aulia           | Depok      | 2001-09-18 | P      | auldzik1809@gmail.com   | Jl. Kebahagian No. 9      |           1 |
+|  4 | P004 | Quinnsha Qiana         | Bogor      | 2000-07-28 | P      | qiana2807@gmail.com     | Jl. Kenangan No 67        |           3 |
+|  5 | P005 | Fikri Saputra          | Bandung    | 2004-05-12 | L      | safikrr88@gmail.com     | Jl. Galau No. 89          |           7 |
+|  6 | P006 | Syahrul Hidayat        | Madura     | 1990-01-17 | L      | hidayat171990@gmail.com | Jl. Galau No 87           |           4 |
+|  7 | P007 | Septiani Alifah        | Cilacap    | 1989-01-28 | P      | tianipah89@gmail.com    | Jl. Kebahagian No 10      |           2 |
+|  8 | P008 | Aisyah Syafitri        | Bandung    | 1997-02-15 | P      | pipit0297@gmail.com     | Jl. Kenangan Indah No 98  |           6 |
+|  9 | P009 | Ahmad Dhani            | Cirebon    | 2003-09-25 | L      | dhanimat39@gmail.com    | Jl. HTS No 76             |           1 |
+| 10 | P010 | Siti Fadilah           | Bengkulu   | 2004-08-12 | P      | dilaaa12@gmail.com      | Jl. Kebanggaan No. 10     |           5 |
+| 11 | P011 | Verawati Fadillah      | Makassar   | 1991-10-21 | P      | rawati91@gmail.com      | Jl. Kepastian No.19       |           3 |
+| 12 | P012 | Fikri Farhani          | Jakarta    | 1889-09-07 | L      | paungbooyahh@gmail.com  | Jl. Tegar Beriman No. 54  |           2 |
+| 13 | P013 | Hugo Widya Dhana       | Bogor      | 2005-07-10 | L      | dhana07@gmail.com       | Jl. Kenangan Indah No. 17 |           7 |
+| 14 | P014 | Maysella Sukarno       | Kebumen    | 2002-03-15 | P      | sukarno@gmail.com       | Jl. Kebahagiaan No. 115   |           4 |
+| 15 | P015 | Muhammad Haikal Muzaki | Surabaya   | 2003-10-15 | L      | muzakikal@gmail.com     | Jl. HTS No. 12            |           6 |
+| 16 | P016 | Miftahul Fajri         | Yogyakarta | 1999-08-05 | L      | fajrihul055@gmail.com   | Jl. Kencayana Raya No. 18 |           4 |
+| 17 | P017 | Meivaza Haura          | Jakarta    | 2024-05-25 | P      | hauramei25@gmail.com    | Jl. LDR No. 94            |           6 |
+| 18 | P018 | Zevania Aura           | Bandung    | 2025-02-19 | P      | zezeraa1919@gmail.com   | Jl. Tulus No. 89          |           1 |
+| 19 | P019 | Azlan Mubarok          | Jakarta    | 2019-03-29 | L      | zlaaanmu29@gmail.com    | Jl. Kebahagiaan No. 28    |           4 |
++----+------+------------------------+------------+------------+--------+-------------------------+---------------------------+-------------+
+19 rows in set (0.001 sec)
+
+MariaDB [dbpuskesmas]> SELECT * FROM periksa;
++----+------------+-------+--------+--------+-----------------------------------------------+-----------+-----------+
+| id | tanggal    | berat | tinggi | tensi  | keterangan                                    | pasien_id | dokter_id |
++----+------------+-------+--------+--------+-----------------------------------------------+-----------+-----------+
+|  1 | 2025-10-01 |    60 |     70 | 120/80 | Pemeriksaan rutin, kondisi stabil             |         1 |         1 |
+|  2 | 2025-10-02 |    55 |    165 | 110/70 | Pemeriksaan kesehatan, tidak ada keluhan      |         2 |         2 |
+|  3 | 2025-10-03 |    70 |    175 | 130/85 | Pemeriksaan kesehatan, perlu diet             |         3 |         3 |
+|  4 | 2025-10-04 |    80 |    180 | 140/90 | Pemeriksaan kesehatan, hipertensi ringan      |         4 |         1 |
+|  5 | 2025-10-05 |    65 |    160 | 115/75 | Pemeriksaan kesehatan, kondisi baik           |         5 |         2 |
+|  6 | 2025-10-06 |    75 |    178 | 135/88 | Pemeriksaan kesehatan, perlu olahraga         |         6 |         4 |
+|  7 | 2025-10-07 |    68 |    165 | 120/80 | Pemeriksaan kesehatan, kondisi stabil         |         7 |         5 |
+|  8 | 2025-10-08 |    72 |    172 | 125/82 | Pemeriksaan kesehatan, tidak ada keluhan      |         8 |        15 |
+|  9 | 2025-10-09 |    58 |    160 | 110/70 | Pemeriksaan kesehatan, perlu peningkatan gizi |         9 |        14 |
+| 10 | 2025-10-10 |    62 |    168 | 118/76 | Pemeriksaan kesehatan, kondisi baik           |        10 |        13 |
+| 11 | 2025-10-11 |    64 |    162 | 119/77 | Pemeriksaan kesehatan, tidak ada keluhan      |        11 |        12 |
+| 12 | 2025-10-12 |    66 |    170 | 121/78 | Pemeriksaan kesehatan, perlu kontrol diet     |        12 |        11 |
+| 13 | 2023-10-13 |    69 |    174 | 123/79 | Pemeriksaan kesehatan, kondisi stabil         |        13 |        10 |
+| 14 | 2025-10-14 |    74 |    177 | 128/84 | Pemeriksaan kesehatan, hipertensi ringan      |        14 |         9 |
+| 15 | 2025-10-15 |    71 |    173 | 126/81 | Pemeriksaan kesehatan, perlu olahraga         |        15 |         8 |
+| 16 | 2025-10-16 |    63 |    169 | 117/75 | Pemeriksaan kesehatan, kondisi stabil         |        16 |         7 |
+| 17 | 2025-10-17 |    59 |    161 | 112/72 | Pemeriksaan kesehatan, tidak ada keluhan      |        17 |         6 |
+| 18 | 2025-10-18 |    12 |     50 | 85/55  | Pemeriksaan kesehatan, kondisi baik,          |        18 |         7 |
+| 19 | 2025-10-19 |    14 |     95 | 90/60  | Pemeriksaan kesehatan, tidak ada keluhan      |        19 |        11 |
++----+------------+-------+--------+--------+-----------------------------------------------+-----------+-----------+
+19 rows in set (0.001 sec)
+
+MariaDB [dbpuskesmas]> SELECT * FROM unit_kerja;
++----+-----------+-----------+-------------------------+
+| id | kode_unit | nama_unit | keterangan              |
++----+-----------+-----------+-------------------------+
+|  1 | UK001     | UGD       | Unit Gawat Darurat      |
+|  2 | UK002     | IGD       | Instalasi Gawat Darurat |
+|  3 | UK003     | RO        | Ruang Operasi           |
+|  4 | UK004     | RUDO      | Ruang Radiologi         |
+|  5 | UK005     | ICU       | Unit Perawat Intensif   |
+|  6 | UK006     | HCU       | High Care Unit          |
++----+-----------+-----------+-------------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [dbpuskesmas]>
